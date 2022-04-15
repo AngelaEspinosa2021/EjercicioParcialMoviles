@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EjercicioParcialUno">
         <activity
+            android:name=".CalculoImcActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

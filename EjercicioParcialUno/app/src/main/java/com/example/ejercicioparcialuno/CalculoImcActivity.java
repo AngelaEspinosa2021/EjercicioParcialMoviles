@@ -11,4 +11,6 @@ public class CalculoImcActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculo_imc);
     }
+
+
 }
