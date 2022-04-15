@@ -2,6 +2,7 @@ package com.example.ejercicioparcialuno;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void goToBtnImcAction() {
-        Toast.makeText(this, "Diste Click para IMC", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Diste Click para IMC", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainActivity.this,CalculoImcActivity.class);
+        startActivity(intent);
     }
 }
