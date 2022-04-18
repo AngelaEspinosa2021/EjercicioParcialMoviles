@@ -2,6 +2,7 @@ package com.example.ejercicioparcialuno;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,11 +26,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         setContentAtributes();
         setContentViewEvents();
-        SharedPreferences sp = getSharedPreferences("nombreUsuario",MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putString("Nombre", "Angela");
-        editor.commit();
-    }
+
+
+
+        }
 
     private void setContentViewEvents() {
         btnImc.setOnClickListener(this);
@@ -54,6 +54,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void goToBtnImcAction() {
         //Toast.makeText(this, "Diste Click para IMC", Toast.LENGTH_LONG).show();
+        SharedPreferences sp = getSharedPreferences("nombreUsuario",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("Nombre", txtNombreUsuario.getText().toString());
+        editor.commit();
+
         Intent intent = new Intent(MainActivity.this,CalculoImcActivity.class);
         startActivity(intent);
     }

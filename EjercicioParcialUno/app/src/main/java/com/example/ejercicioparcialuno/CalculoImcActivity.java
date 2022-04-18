@@ -14,7 +14,7 @@ public class CalculoImcActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculo_imc);
         SharedPreferences spGet = getSharedPreferences("nombreUsuario", MODE_PRIVATE);
-        String name = spGet.getString("Nombre", "NA");
+        String name = spGet.getString("Nombre", "");
         Toast.makeText(getApplicationContext(), "Hola "+name, Toast.LENGTH_LONG).show();
     }
 
