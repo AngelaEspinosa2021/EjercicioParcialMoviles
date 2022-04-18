@@ -27,7 +27,8 @@ public class CalculoImcActivity extends AppCompatActivity {
         setContentAtributes();
         SharedPreferences spGet = getSharedPreferences("nombreUsuario", MODE_PRIVATE);
         String name = spGet.getString("Nombre", "");
-        Toast.makeText(getApplicationContext(), "Hola "+name, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "Hola "+name, Toast.LENGTH_LONG).show();
+        mostrarNombreUsuario.setText(name);
     }
 
     public void setContentAtributes()
