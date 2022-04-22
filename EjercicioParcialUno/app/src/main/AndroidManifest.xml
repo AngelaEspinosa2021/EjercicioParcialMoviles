@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EjercicioParcialUno">
         <activity
+            android:name=".CalculadoraActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ConvsersionTemperaturaActivity"
             android:exported="true">
             <intent-filter>
@@ -32,7 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".ResultadoImcActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

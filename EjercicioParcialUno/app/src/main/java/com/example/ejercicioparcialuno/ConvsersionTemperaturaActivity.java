@@ -26,8 +26,8 @@ public class ConvsersionTemperaturaActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_convsersion_temperatura);
         setContentAtributes();
         setContentViewEvents();
-        SharedPreferences spGet = getSharedPreferences("nombreUsuario", MODE_PRIVATE);
-        String name = spGet.getString("Nombre", "");
+        SharedPreferences spGet3 = getSharedPreferences("nombreUsuario", MODE_PRIVATE);
+        String name = spGet3.getString("Nombre", "");
         nombreUsuarioTemp.setText(name);
     }
 

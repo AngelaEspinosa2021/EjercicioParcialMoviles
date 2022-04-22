@@ -37,7 +37,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:width="290dp"
+            android:width="280dp"
             android:textAlignment="viewStart"
             android:textColor="@color/white"
             android:textSize="16sp"
