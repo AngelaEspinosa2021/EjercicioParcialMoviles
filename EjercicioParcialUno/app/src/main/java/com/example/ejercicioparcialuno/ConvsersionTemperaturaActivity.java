@@ -80,7 +80,7 @@ public class ConvsersionTemperaturaActivity extends AppCompatActivity implements
             temperatura2.setText("Kelvin:");
             valorTemp2.setText(convertTemp.converCelsius_Kelvin(temperatura));
         }
-        /*
+
         if(fahrenheit.isChecked())
         {
             temperatura1.setText("Celsius:");
@@ -88,7 +88,7 @@ public class ConvsersionTemperaturaActivity extends AppCompatActivity implements
             temperatura2.setText("Kelvin:");
             valorTemp2.setText(convertTemp.converFahrenheit_Kelvin(temperatura));
 
-        }*/
+        }
         if(kelvin.isChecked())
         {
             temperatura1.setText("Celsius:");

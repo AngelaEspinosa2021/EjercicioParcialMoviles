@@ -23,7 +23,7 @@ public class Temperatura {
     }
 
     public String converFahrenheit_Kelvin(double temperatura){
-        resultado = (((temperatura - 32) + 273.15)* (5 / 9));
+        resultado = (((temperatura - 32) + 273.15) * (5 / 9));
         resultadoTemp = String.valueOf(resultado);
         return resultadoTemp;
     }
