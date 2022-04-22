@@ -15,6 +15,8 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
     public EditText pantallaCalculadora;
     public Button uno, dos, tres, cuatro, cinco, seis, siete,ocho, nueve, cero;
     public Button suma, resta, multiplicacion, division, total;
+    Operaciones operaciones = new Operaciones();
+    int resultadoParcial = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,23 +119,39 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void goToTotalAction() {
-        pantallaCalculadora.setText("=");
+        pantallaCalculadora.setText(String.valueOf(resultadoParcial));
+        resultadoParcial=0;
+        //pantallaCalculadora.setText("=");
     }
 
     private void goToDivisionAction() {
-        pantallaCalculadora.setText("/");
+        int numero = Integer.parseInt(pantallaCalculadora.getText().toString());
+        resultadoParcial = operaciones.division(numero);
+        pantallaCalculadora.setText(String.valueOf(resultadoParcial));
+
+        //pantallaCalculadora.setText("/");
     }
 
     private void goToMultiplicacionAction() {
-        pantallaCalculadora.setText("*");
+        int numero = Integer.parseInt(pantallaCalculadora.getText().toString());
+        resultadoParcial = operaciones.multiplicacion(numero);
+        pantallaCalculadora.setText(String.valueOf(resultadoParcial));
+
+        //pantallaCalculadora.setText("*");
     }
 
     private void goToRestaAction() {
-        pantallaCalculadora.setText("-");
+        int numero = Integer.parseInt(pantallaCalculadora.getText().toString());
+        resultadoParcial = operaciones.resta(numero);
+        pantallaCalculadora.setText(String.valueOf(resultadoParcial));
+
+        //pantallaCalculadora.setText("-");
     }
 
     private void goToSumaAction() {
-        pantallaCalculadora.setText("+");
+        int numero = Integer.parseInt(pantallaCalculadora.getText().toString());
+        resultadoParcial = operaciones.suma(numero);
+        //pantallaCalculadora.setText("+");
     }
 
     private void goToCeroAction() {
