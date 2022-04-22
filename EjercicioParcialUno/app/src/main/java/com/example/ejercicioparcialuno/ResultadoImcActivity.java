@@ -21,10 +21,12 @@ public class ResultadoImcActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_resultado_imc);
         setContentAtributes();
         setContentViewEvents();
-        SharedPreferences spGet = getSharedPreferences("datosUsuario", MODE_PRIVATE);
-        String altura = spGet.getString("Altura", "");
-        String peso = spGet.getString("Peso", "");
-        nombreUsuarioResultImc.setText(peso);
+        SharedPreferences spGet = getSharedPreferences("nombreUsuario", MODE_PRIVATE);
+        String name = spGet.getString("Nombre", "");
+        SharedPreferences spGet2 = getSharedPreferences("datosUsuario", MODE_PRIVATE);
+        String altura = spGet2.getString("Altura", "");
+        String peso = spGet2.getString("Peso", "");
+        nombreUsuarioResultImc.setText(name);
     }
 
     private void setContentViewEvents() {
