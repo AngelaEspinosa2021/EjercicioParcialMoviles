@@ -3,6 +3,7 @@ package com.example.ejercicioparcialuno;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,10 @@ public class ResultadoImcActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_resultado_imc);
         setContentAtributes();
         setContentViewEvents();
+        SharedPreferences spGet = getSharedPreferences("datosUsuario", MODE_PRIVATE);
+        String altura = spGet.getString("Altura", "");
+        String peso = spGet.getString("Peso", "");
+        nombreUsuarioResultImc.setText(peso);
     }
 
     private void setContentViewEvents() {

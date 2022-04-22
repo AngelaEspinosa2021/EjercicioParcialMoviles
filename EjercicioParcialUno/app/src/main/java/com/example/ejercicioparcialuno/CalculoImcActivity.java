@@ -58,6 +58,12 @@ public class CalculoImcActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void goToResultImcAction() {
+        SharedPreferences sp1 = getSharedPreferences("datosUsuario",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp1.edit();
+        editor.putString("Altura", txtAltura.getText().toString());
+        editor.putString("Peso", txtPeso.getText().toString());
+        editor.commit();
+
         Intent intent = new Intent(CalculoImcActivity.this,ResultadoImcActivity.class);
         startActivity(intent);
     }
