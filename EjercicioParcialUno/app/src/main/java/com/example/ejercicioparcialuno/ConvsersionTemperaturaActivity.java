@@ -8,13 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class ConvsersionTemperaturaActivity extends AppCompatActivity implements View.OnClickListener {
-    public TextView nombreUsuarioTemp;
+    public TextView nombreUsuarioTemp, txtTemperatura;
     public Button btnConvertirTemp, btnMenuPpal;
     public RadioButton celsius, fahrenheit, kelvin;
     public TextView temperatura1,temperatura2, valorTemp1,valorTemp2;
+    public RadioGroup radioTemp;
+    Temperatura convertTemp = new Temperatura();
 
 
     @Override
@@ -26,6 +29,7 @@ public class ConvsersionTemperaturaActivity extends AppCompatActivity implements
         SharedPreferences spGet = getSharedPreferences("nombreUsuario", MODE_PRIVATE);
         String name = spGet.getString("Nombre", "");
         nombreUsuarioTemp.setText(name);
+
     }
 
     private void setContentViewEvents() {
@@ -45,6 +49,8 @@ public class ConvsersionTemperaturaActivity extends AppCompatActivity implements
         valorTemp1 = findViewById(R.id.valorTemp1);
         valorTemp2 = findViewById(R.id.valorTemp2);
         btnMenuPpal = findViewById(R.id.btnMenuPpal);
+        txtTemperatura = findViewById(R.id.txtTemperatura);
+        radioTemp = findViewById(R.id.radio_temperatura);
     }
 
     @Override
@@ -57,7 +63,6 @@ public class ConvsersionTemperaturaActivity extends AppCompatActivity implements
                 goToMenuPpalAction();
                 break;
         }
-
     }
 
     private void goToMenuPpalAction() {
@@ -66,6 +71,31 @@ public class ConvsersionTemperaturaActivity extends AppCompatActivity implements
     }
 
     private void convertirTempAction() {
+        double temperatura = Double.parseDouble(txtTemperatura.getText().toString());
+
+        if(radioTemp.getCheckedRadioButtonId() == R.id.celsius)
+        {
+            temperatura1.setText("Fahrenheit:");
+            valorTemp1.setText(convertTemp.converCelsius_Fahrenheit(temperatura));
+            temperatura2.setText("Kelvin:");
+            valorTemp2.setText(convertTemp.converCelsius_Kelvin(temperatura));
+        }
+        if(radioTemp.getCheckedRadioButtonId() == R.id.fahrenheit)
+        {
+            temperatura1.setText("Celsius:");
+            valorTemp1.setText(convertTemp.converFahrenheit_Celsius(temperatura));
+            temperatura2.setText("Kelvin:");
+            valorTemp2.setText(convertTemp.converFahrenheit_Kelvin(temperatura));
+
+        }
+        if(radioTemp.getCheckedRadioButtonId() == R.id.kelvin)
+        {
+            temperatura1.setText("Celsius:");
+            valorTemp1.setText(convertTemp.converKelvin_Celsius(temperatura));
+            temperatura2.setText("Fahrenheit:");
+            valorTemp2.setText(convertTemp.converkelvin_Fahrenheit(temperatura));
+        }
+
     }
 
 }
