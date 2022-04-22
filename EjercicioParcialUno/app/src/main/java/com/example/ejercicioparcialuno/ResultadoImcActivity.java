@@ -14,6 +14,14 @@ public class ResultadoImcActivity extends AppCompatActivity implements View.OnCl
     public TextView saludo;
     public TextView nombreUsuarioResultImc;
     public Button btnRegresarMain;
+    public TextView rango;
+    public TextView riesgo;
+    public TextView imcUsuario;
+    String altura;
+    String peso;
+    Imc usuario = new Imc();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +31,11 @@ public class ResultadoImcActivity extends AppCompatActivity implements View.OnCl
         setContentViewEvents();
         SharedPreferences spGet = getSharedPreferences("nombreUsuario", MODE_PRIVATE);
         String name = spGet.getString("Nombre", "");
-        SharedPreferences spGet2 = getSharedPreferences("datosUsuario", MODE_PRIVATE);
-        String altura = spGet2.getString("Altura", "");
-        String peso = spGet2.getString("Peso", "");
         nombreUsuarioResultImc.setText(name);
+        Bundle bundle = this.getIntent().getExtras();
+        altura = bundle.getString("Altura");
+        peso = bundle.getString("Peso");
+        mostrarResultado();
     }
 
     private void setContentViewEvents() {
@@ -35,10 +44,16 @@ public class ResultadoImcActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view){
-        switch (view.getId()){
-            case R.id.btnRegresarMain:
-                goToMainPpalAction();
-        }
+        goToMainPpalAction();
+    }
+
+    private void mostrarResultado(){
+        imcUsuario.setText(usuario.calcularImc(peso,altura));
+        //usuario.calcularImc();
+        //clasificacion = usuario.calcularImc(peso,altura);
+        /*rango.setText(clasificacion[0]);
+        riesgo.setText(clasificacion[1]);
+        imcUsuario.setText(clasificacion[2]);*/
     }
 
     private void goToMainPpalAction() {
@@ -50,5 +65,8 @@ public class ResultadoImcActivity extends AppCompatActivity implements View.OnCl
         saludo=findViewById(R.id.saludo);
         nombreUsuarioResultImc=findViewById(R.id.nombreUsuarioResultImc);
         btnRegresarMain=findViewById(R.id.btnRegresarMain);
+        rango=findViewById(R.id.rango);
+        riesgo=findViewById(R.id.riesgo);
+        imcUsuario=findViewById(R.id.imcUsuario);
     }
 }

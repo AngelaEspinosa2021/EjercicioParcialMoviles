@@ -1,60 +1,46 @@
 package com.example.ejercicioparcialuno;
 
 public class Imc {
-    double peso;
-    double altura;
-    double resultado;
-    String[] niveles;
-    String rango;
-    String riesgo;
+    public String peso;
+    public String altura;
+    public double resultado;
+    public String[] imc;
+    public String resultImc;
+    public String rango;
 
-    public Imc(double peso, double altura){
-        this.peso=peso;
-        this.altura=altura;
+    public String calcularImc(String peso, String altura) {
+        double valorPeso = Double.parseDouble(altura);
+        double valorAltura = Double.parseDouble(peso);
+        resultado = (valorPeso) / (valorAltura * valorAltura);
+        resultImc = String.valueOf(resultado);
+        return resultImc;
     }
 
-    public double calcularImc(double peso, double altura){
-        resultado = (peso) /(altura*altura);
-        return resultado;
-    }
-
-    public String[] validarRango(double resultado){
-
-        if(resultado >= 18.5 && resultado <= 24.9) {
+    public String validarRango(String result) {
+        if (resultado >= 18.5 && resultado <= 24.9) {
             rango = "Normal";
-            riesgo = "Promedio";
-            String[] niveles = {rango,riesgo};
-            return niveles;
+            return rango;
         }
-        if(resultado >= 25 && resultado <= 29.9)
-        {
-            rango="Sobrepeso";
-            riesgo="Aumentado";
-            String[] niveles = {rango,riesgo};
-            return niveles;
+        if (resultado >= 25 && resultado <= 29.9) {
+            rango = "Sobrepeso";
+            return rango;
         }
-        if(resultado >= 30 && resultado <= 34.9)
-        {
-            rango="Obesidad grado I";
-            riesgo="Moderado";
-            String[] niveles = {rango,riesgo};
-            return niveles;
+        if (resultado >= 30 && resultado <= 34.9) {
+            rango = "Obesidad grado I";
+            return rango;
         }
-        if(resultado >= 35 && resultado <= 39.9)
-        {
-            rango="Obesidad grado II";
-            riesgo="Severo";
-            String[] niveles = {rango,riesgo};
-            return niveles;
+        if (resultado >= 35 && resultado <= 39.9) {
+            rango = "Obesidad grado II";
+            return rango;
         }
-        if(resultado> 40)
-        {
-            rango="Obesidad grado III";
-            riesgo="Muy Severo";
-            String[] niveles = {rango,riesgo};
-            return niveles;
+        if (resultado > 40) {
+            rango = "Obesidad grado III";
+            return rango;
         }
 
-        return null;
+        rango="Fuera de rango";
+        return rango;
+
     }
+
 }
