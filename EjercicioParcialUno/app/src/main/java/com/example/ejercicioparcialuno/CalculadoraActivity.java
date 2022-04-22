@@ -34,6 +34,7 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
         cuatro.setOnClickListener(this);
         cinco.setOnClickListener(this);
         seis.setOnClickListener(this);
+        siete.setOnClickListener(this);
         ocho.setOnClickListener(this);
         nueve.setOnClickListener(this);
         cero.setOnClickListener(this);
@@ -116,47 +117,62 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void goToTotalAction() {
+        pantallaCalculadora.setText("=");
     }
 
     private void goToDivisionAction() {
+        pantallaCalculadora.setText("/");
     }
 
     private void goToMultiplicacionAction() {
+        pantallaCalculadora.setText("*");
     }
 
     private void goToRestaAction() {
+        pantallaCalculadora.setText("-");
     }
 
     private void goToSumaAction() {
+        pantallaCalculadora.setText("+");
     }
 
     private void goToCeroAction() {
+        pantallaCalculadora.setText("0");
     }
 
     private void goToNueveAction() {
+        pantallaCalculadora.setText("9");
     }
 
     private void goToOchoAction() {
+        pantallaCalculadora.setText("8");
     }
 
     private void goToSieteAction() {
+        pantallaCalculadora.setText("7");
     }
 
     private void goToSeisAction() {
+        pantallaCalculadora.setText("6");
     }
 
     private void goToCincoAction() {
+        pantallaCalculadora.setText("5");
     }
 
     private void goToCuatroAction() {
+        pantallaCalculadora.setText("4");
     }
 
     private void goToTresAction() {
+        pantallaCalculadora.setText("3");
     }
 
     private void goToDosAction() {
+        pantallaCalculadora.setText("2");
     }
 
     private void goToUnoAction() {
+        pantallaCalculadora.setText("1");
     }
 }
