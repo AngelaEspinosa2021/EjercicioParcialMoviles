@@ -29,7 +29,6 @@ public class ConvsersionTemperaturaActivity extends AppCompatActivity implements
         SharedPreferences spGet = getSharedPreferences("nombreUsuario", MODE_PRIVATE);
         String name = spGet.getString("Nombre", "");
         nombreUsuarioTemp.setText(name);
-
     }
 
     private void setContentViewEvents() {
@@ -62,6 +61,7 @@ public class ConvsersionTemperaturaActivity extends AppCompatActivity implements
             case R.id.btnMenuPpal:
                 goToMenuPpalAction();
                 break;
+
         }
     }
 
@@ -73,22 +73,23 @@ public class ConvsersionTemperaturaActivity extends AppCompatActivity implements
     private void convertirTempAction() {
         double temperatura = Double.parseDouble(txtTemperatura.getText().toString());
 
-        if(radioTemp.getCheckedRadioButtonId() == R.id.celsius)
+        if(celsius.isChecked())
         {
             temperatura1.setText("Fahrenheit:");
             valorTemp1.setText(convertTemp.converCelsius_Fahrenheit(temperatura));
             temperatura2.setText("Kelvin:");
             valorTemp2.setText(convertTemp.converCelsius_Kelvin(temperatura));
         }
-        if(radioTemp.getCheckedRadioButtonId() == R.id.fahrenheit)
+        /*
+        if(fahrenheit.isChecked())
         {
             temperatura1.setText("Celsius:");
             valorTemp1.setText(convertTemp.converFahrenheit_Celsius(temperatura));
             temperatura2.setText("Kelvin:");
             valorTemp2.setText(convertTemp.converFahrenheit_Kelvin(temperatura));
 
-        }
-        if(radioTemp.getCheckedRadioButtonId() == R.id.kelvin)
+        }*/
+        if(kelvin.isChecked())
         {
             temperatura1.setText("Celsius:");
             valorTemp1.setText(convertTemp.converKelvin_Celsius(temperatura));

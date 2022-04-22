@@ -102,42 +102,35 @@
             <RadioGroup
                 android:id="@+id/radio_temperatura"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="103dp"
                 android:layout_weight="1">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <RadioButton
+                    android:id="@+id/fahrenheit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:text="Fahrenheit"
+                    android:textAlignment="viewStart"
+                    android:textColor="#4A4848" />
 
-                    <RadioButton
-                        android:id="@+id/kelvin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Kelvin"
-                        android:textAlignment="viewStart"
-                        android:textColor="#4A4848" />
+                <RadioButton
+                    android:id="@+id/celsius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Celsius"
+                    android:textAlignment="viewStart"
+                    android:textColor="#4A4848" />
 
-                    <RadioButton
-                        android:id="@+id/celsius"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Celsius"
-                        android:textAlignment="viewStart"
-                        android:textColor="#4A4848" />
-
-                    <RadioButton
-                        android:id="@+id/fahrenheit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Fahrenheit"
-                        android:textAlignment="viewStart"
-                        android:textColor="#4A4848" />
-                </LinearLayout>
+                <RadioButton
+                    android:id="@+id/kelvin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kelvin"
+                    android:textAlignment="viewStart"
+                    android:textColor="#4A4848" />
 
             </RadioGroup>
 
@@ -149,7 +142,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="280dp"
         android:layout_marginEnd="20dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -191,7 +184,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:width="15dp"
-                android:text="Fahrenheit:"
                 android:textColor="#4A4848"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -201,8 +193,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:width="150dp"
-                android:text="Prueba"
+                android:width="100dp"
                 android:textColor="#4A4848"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -221,7 +212,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:width="15dp"
-                android:text="P:"
                 android:textColor="#4A4848"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -231,7 +221,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:width="150dp"
+                android:width="100dp"
                 android:textColor="#4A4848"
                 android:textSize="24sp" />
         </LinearLayout>
