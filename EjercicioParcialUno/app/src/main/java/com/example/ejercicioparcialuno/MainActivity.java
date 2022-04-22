@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setContentViewEvents() {
         btnImc.setOnClickListener(this);
+        btnTemperatura.setOnClickListener(this);
     }
 
     public void setContentAtributes(){
@@ -47,6 +48,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.btnImc:
                 goToBtnImcAction();
+                break;
+            case R.id.btnTemperatura:
+                goToConvertirTempAction();
+                break;
         }
     }
 
@@ -58,6 +63,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editor.commit();
 
         Intent intent = new Intent(MainActivity.this,CalculoImcActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToConvertirTempAction() {
+        Intent intent = new Intent(MainActivity.this,ConvsersionTemperaturaActivity.class);
         startActivity(intent);
     }
 }
