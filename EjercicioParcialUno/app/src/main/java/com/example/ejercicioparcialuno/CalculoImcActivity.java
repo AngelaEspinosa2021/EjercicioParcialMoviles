@@ -3,14 +3,16 @@ package com.example.ejercicioparcialuno;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CalculoImcActivity extends AppCompatActivity {
+public class CalculoImcActivity extends AppCompatActivity implements View.OnClickListener{
     public TextView tituloBienvenida;
     public TextView mostrarNombreUsuario;
     public TextView altura;
@@ -25,10 +27,15 @@ public class CalculoImcActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculo_imc);
         setContentAtributes();
+        setContentViewEvents();
         SharedPreferences spGet = getSharedPreferences("nombreUsuario", MODE_PRIVATE);
         String name = spGet.getString("Nombre", "");
         //Toast.makeText(getApplicationContext(), "Hola "+name, Toast.LENGTH_LONG).show();
         mostrarNombreUsuario.setText(name);
+    }
+
+    private void setContentViewEvents() {
+        btnCalcularImc.setOnClickListener(this);
     }
 
     public void setContentAtributes()
@@ -40,6 +47,19 @@ public class CalculoImcActivity extends AppCompatActivity {
         peso=findViewById(R.id.peso);
         txtPeso=findViewById(R.id.txtPeso);
         btnCalcularImc=findViewById(R.id.btnCalcularImc);
+    }
+
+    @Override
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.btnCalcularImc:
+                goToResultImcAction();
+        }
+    }
+
+    private void goToResultImcAction() {
+        Intent intent = new Intent(CalculoImcActivity.this,ResultadoImcActivity.class);
+        startActivity(intent);
     }
 
 
