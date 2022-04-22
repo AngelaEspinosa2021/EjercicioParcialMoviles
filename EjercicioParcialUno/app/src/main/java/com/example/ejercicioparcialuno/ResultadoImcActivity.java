@@ -21,6 +21,8 @@ public class ResultadoImcActivity extends AppCompatActivity implements View.OnCl
     String peso;
     Imc usuario = new Imc();
 
+    double valorImc;
+
 
 
     @Override
@@ -48,12 +50,12 @@ public class ResultadoImcActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void mostrarResultado(){
-        imcUsuario.setText(usuario.calcularImc(peso,altura));
-        //usuario.calcularImc();
-        //clasificacion = usuario.calcularImc(peso,altura);
-        /*rango.setText(clasificacion[0]);
-        riesgo.setText(clasificacion[1]);
-        imcUsuario.setText(clasificacion[2]);*/
+        double valorPeso = Double.parseDouble(peso);
+        double valorAltura = Double.parseDouble(altura);
+        valorImc = usuario.calcularImc(valorPeso,valorAltura);
+        imcUsuario.setText(String.valueOf(valorImc));
+        rango.setText(usuario.validarRango(valorImc));
+        riesgo.setText(usuario.validarRiesgo(usuario.validarRango(valorImc)));
     }
 
     private void goToMainPpalAction() {

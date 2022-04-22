@@ -1,22 +1,16 @@
 package com.example.ejercicioparcialuno;
 
 public class Imc {
-    public String peso;
-    public String altura;
     public double resultado;
-    public String[] imc;
-    public String resultImc;
     public String rango;
+    public String riesgo;
 
-    public String calcularImc(String peso, String altura) {
-        double valorPeso = Double.parseDouble(altura);
-        double valorAltura = Double.parseDouble(peso);
-        resultado = (valorPeso) / (valorAltura * valorAltura);
-        resultImc = String.valueOf(resultado);
-        return resultImc;
+    public double calcularImc(double peso, double altura) {
+       resultado = Math.round( peso / (altura * altura));
+       return resultado;
     }
 
-    public String validarRango(String result) {
+    public String validarRango(double resultado) {
         if (resultado >= 18.5 && resultado <= 24.9) {
             rango = "Normal";
             return rango;
@@ -37,10 +31,29 @@ public class Imc {
             rango = "Obesidad grado III";
             return rango;
         }
-
         rango="Fuera de rango";
         return rango;
+    }
 
+    public String validarRiesgo(String rango){
+        switch (rango){
+            case("Normal"):
+                riesgo = "Promedio";
+               break;
+            case("Sobrepeso"):
+                riesgo = "Aumentado";
+                break;
+            case("Obesidad grado I"):
+                riesgo = "Moderado";
+                break;
+            case("Obesidad grado II"):
+                riesgo = "Severo";
+                break;
+            case("Obesidad grado III"):
+                riesgo = "Muy Severi";
+            break;
+        }
+        return riesgo;
     }
 
 }
