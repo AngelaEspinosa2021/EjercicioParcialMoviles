@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,7 @@ public class ResultadoImcActivity extends AppCompatActivity implements View.OnCl
         altura = bundle.getString("Altura");
         peso = bundle.getString("Peso");
         mostrarResultado();
+        mostrarColoresRango();
     }
 
     private void setContentViewEvents() {
@@ -56,6 +58,27 @@ public class ResultadoImcActivity extends AppCompatActivity implements View.OnCl
         imcUsuario.setText(String.valueOf(valorImc));
         rango.setText(usuario.validarRango(valorImc));
         riesgo.setText(usuario.validarRiesgo(usuario.validarRango(valorImc)));
+    }
+
+    private void mostrarColoresRango(){
+        String valorRango = usuario.validarRango(valorImc);
+        switch (valorRango){
+            case("Normal"):
+                rango.setBackgroundColor(Color.GREEN);
+                break;
+            case("Sobrepeso"):
+                rango.setBackgroundColor(Color.YELLOW);
+                break;
+            case("Obesidad grado I"):
+                rango.setBackgroundColor(Color.RED);
+                break;
+            case("Obesidad grado II"):
+                rango.setBackgroundColor(Color.RED);
+                break;
+            case("Obesidad grado IIi"):
+                rango.setBackgroundColor(Color.RED);
+                break;
+        }
     }
 
     private void goToMainPpalAction() {
